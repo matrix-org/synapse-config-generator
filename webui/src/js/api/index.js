@@ -1,6 +1,5 @@
 import fetchAbsolute from 'fetch-absolute';
 import {
-    API_URL,
     CONFIG,
     SECRET_KEY,
     SERVER_NAME,
@@ -10,7 +9,7 @@ import {
     START,
 } from './constants';
 
-const fetchAbs = fetchAbsolute(fetch)(API_URL)
+const fetchAbs = fetch
 
 export const getServerName = () =>
     fetchAbs(SERVER_NAME)

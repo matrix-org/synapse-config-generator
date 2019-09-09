@@ -1,4 +1,3 @@
-export const API_URL = "http://localhost:8888/";
 export const SERVER_NAME = "/servername";
 export const SECRET_KEY = "/secretkey";
 export const CONFIG = "/config";
