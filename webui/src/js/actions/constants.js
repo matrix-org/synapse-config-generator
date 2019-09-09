@@ -1,6 +1,6 @@
 export const DELEGATION_TYPES = {
     LOCAL: "local",
-    WELL_KNOWN: ".well_known",
+    WELL_KNOWN: ".well-known",
     DNS: "DNS SRV",
 };
 
