@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { ADVANCE_UI, BACK_UI, BASE_CONFIG_CHECKED } from '../actions/types';
+import { ADVANCE_UI, BACK_UI } from '../actions/types';
 import {
     SETUP_ORDER,
 } from './ui-constants';

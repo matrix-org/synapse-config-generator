@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 /* eslint-disable camelcase */
-import { TLS_TYPES, REVERSE_PROXY_TYPES, DATABASE_TYPES } from '../actions/constants';
+import { TLS_TYPES, DATABASE_TYPES } from '../actions/constants';
 import { CONFIG_LOCK } from '../api/constants';
 
 const listeners = config => {

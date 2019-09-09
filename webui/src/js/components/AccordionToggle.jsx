@@ -16,7 +16,6 @@ limitations under the License.
 
 import React from 'react';
 import useAccordionToggle from 'react-bootstrap/useAccordionToggle';
-import { reset } from 'ansi-colors';
 import Chevron from './Chevron';
 
 export default ({ active, open, children, eventKey, as, reset }) => {

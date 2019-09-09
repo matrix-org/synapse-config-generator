@@ -40,7 +40,6 @@
     "watch": "webpack --progress -d --config webpack.config.babel.js --watch"
   },
   "dependencies": {
-    "fetch-absolute": "^1.0.0",
     "react-bootstrap": "^1.0.0-beta.11",
     "react-icons": "^3.7.0",
     "react-localize-redux": "^3.5.3",

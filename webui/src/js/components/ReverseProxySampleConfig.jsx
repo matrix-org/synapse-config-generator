@@ -17,7 +17,6 @@ limitations under the License.
 import React from 'react';
 
 import ContentWrapper from '../containers/ContentWrapper';
-import ButtonDisplay from './ButtonDisplay';
 import DownloadOrCopy from './DownloadOrCopy';
 import { REVERSE_PROXY_TYPES } from '../actions/constants';
 

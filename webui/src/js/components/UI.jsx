@@ -16,10 +16,7 @@ limitations under the License.
 
 import React from 'react';
 
-import style from '../../scss/main.scss';
-
 import Accordion from 'react-bootstrap/Accordion';
-import Card from 'react-bootstrap/Card';
 
 import {
     SERVER_NAME_UI,
