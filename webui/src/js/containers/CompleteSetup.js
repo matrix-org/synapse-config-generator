@@ -10,7 +10,6 @@ const mapStateToProps = (state) => ({
     configDir: state.baseConfig.configDir,
 });
 
-
 const mapDispatchToProps = (dispatch) => ({
     onClick: (callback) => dispatch(writeConfig(callback)),
 });

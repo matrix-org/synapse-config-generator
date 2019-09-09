@@ -45,7 +45,6 @@ export default ({
         >Next</button>
     </Card.Body>
 
-
     const finishedBody = <Card.Body>
         <InlineError error={synapseStartFailed ? "Couldn't start synapse." : undefined}>
             <button onClick={decoratedOnClick}>Start Synapse</button>
@@ -66,8 +65,6 @@ export default ({
 
     const show = [];
     const [body, setBody] = useState(0);
-
-
 
     if (tlsType == TLS_TYPES.REVERSE_PROXY) {
 
