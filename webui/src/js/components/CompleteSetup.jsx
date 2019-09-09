@@ -32,7 +32,9 @@ import { nextUI } from '../reducers/setup-ui-reducer';
 const synctlLink = "https://manpages.debian.org/testing/matrix-synapse/synctl.1.en.html";
 
 class CompleteSetup extends React.Component {
+
     constructor(props) {
+
         super(props);
         this.state = {
             revProxyDownloaded: false,
@@ -40,9 +42,11 @@ class CompleteSetup extends React.Component {
             body: 0,
             onClick: () => props.onClick(useAccordionToggle(nextUI(COMPLETE_UI))),
         }
+
     }
 
     render() {
+
         const revProxyBody = <Card.Body>
             <ReverseProxySampleConfig onClick={() => this.setRevProxyDownloaded(true)} />
             <button
