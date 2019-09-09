@@ -3,8 +3,8 @@ import argparse
 import os.path as path
 import sys
 
-from synapse_topology.server import Server
-from synapse_topology.model import Model
+from server import Server
+from model import Model
 
 from twisted.internet import endpoints, reactor
 from twisted.web.server import Site

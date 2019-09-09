@@ -7,7 +7,7 @@ from twisted.web.static import File
 from klein import Klein
 
 from .utils import port_checker
-from synapse_topology.model import constants
+from model import constants
 from .schemas import (
     BASE_CONFIG_SCHEMA,
     CERT_PATHS_SCHEMA,

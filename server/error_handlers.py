@@ -1,6 +1,6 @@
 from jsonschema import ValidationError
 from simplejson.errors import JSONDecodeError
-from synapse_topology.model.errors import (
+from model.errors import (
     BaseConfigInUseError,
     ConfigNotFoundError,
     ServernameNotSetError,
