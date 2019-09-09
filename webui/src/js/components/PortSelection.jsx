@@ -71,6 +71,13 @@ export default ({
 
     const fedPortPriv = fedPort ? fedPort < 1024 : defaultFedPort < 1024
     const clientPortPriv = clientPort ? clientPort < 1024 : defaultClientPort < 1024
+
+    const setPorts = () => onClick(
+        fedPort ? parseInt(fedPort) : defaultFedPort,
+        clientPort ? parseInt(clientPort) : defaultClientPort,
+        toggle,
+    )
+
     return <Card>
         <AccordionToggle as={Card.Header} eventKey={PORT_SELECTION_UI}>
             {servername ? servername + "'s ports" : "Ports"}
@@ -130,11 +137,7 @@ export default ({
                 <div>
                     <button
                         disabled={clientPortValid && fedPortValid ? undefined : true}
-                        onClick={() => onClick(
-                            fedPort ? parseInt(fedPort) : defaultFedPort,
-                            clientPort ? parseInt(clientPort) : defaultClientPort,
-                            toggle,
-                        )}
+                        onClick={setPorts()}
                     >Verify These Ports</button>
                 </div>
             </Card.Body>

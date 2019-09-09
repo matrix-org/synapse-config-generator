@@ -31,6 +31,24 @@ export default ({
 
     const toggle = useAccordionToggle(nextUI(DATABASE_UI));
 
+    const submitPostrgess = () => {
+        toggle();
+        onClick({
+            databaseType: DATABASE_TYPES.POSTGRES,
+            databaseHost,
+            database: postgresDatabase,
+            databaseUsername,
+            databasePassword,
+        })
+    }
+
+    const submitSQLite3 = () => {
+        toggle();
+        onClick({
+            databaseType: DATABASE_TYPES.SQLITE3
+        });
+    }
+
     return <Card>
         <AccordionToggle as={Card.Header} eventKey={DATABASE_UI}>
             Database
@@ -82,27 +100,13 @@ export default ({
                         <button
                             className='inputButton'
                             disabled={databaseHost ? undefined : true}
-                            onClick={() => {
-                                toggle();
-                                onClick({
-                                    databaseType: DATABASE_TYPES.POSTGRES,
-                                    databaseHost,
-                                    database: postgresDatabase,
-                                    databaseUsername,
-                                    databasePassword,
-                                })
-                            }}
+                            onClick={submitPostrgess}
                         >Use Postgres</button>
                     </Tab>
                     <Tab eventKey={DATABASE_TYPES.SQLITE3} title={DATABASE_TYPES.SQLITE3}>
                         <button
                             className='inputButton'
-                            onClick={() => {
-                                toggle();
-                                onClick({
-                                    databaseType: DATABASE_TYPES.SQLITE3
-                                });
-                            }}
+                            onClick={submitSQLite3}
                         >Use {DATABASE_TYPES.SQLITE3}</button>
                     </Tab>
                 </Tabs>
