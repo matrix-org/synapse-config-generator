@@ -1,11 +1,5 @@
 const path = require('path');
 
-// get the path of the js-sdk so we can extend the config
-// eslint supports loading extended configs by module,
-// but only if they come from a module that starts with eslint-config-
-// So we load the filename directly (and it could be in node_modules/
-// or or ../node_modules/ etc)
-
 module.exports = {
     parser: "babel-eslint",
     plugins: [
