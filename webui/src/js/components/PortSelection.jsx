@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import React, { useState } from 'react';
 
 import Accordion from 'react-bootstrap/Accordion';
@@ -91,15 +90,17 @@ export default ({
                 {
                     canChangePorts ?
                         <p>
-                            Since you're using a reverse proxy you can change these to anything you
-                            like as long as synapse can bind to them. We recommend not using privileged
-                            ports within the range 0 to 1024.
+                            Since you're using a reverse proxy you can change these to
+                            anything you like as long as synapse can bind to them. We
+                            recommend not using privileged ports within the range 0 to
+                            1024.
                         </p>
                         :
                         <p>
-                            Since you're not using a reverse proxy synapse will have to listen on
-                            these ports. If any of these ports are already in use (we'll test them when
-                            you click the button) you will either need to reconfigure the ports used on
+                            Since you're not using a reverse proxy synapse will have to
+                            listen on these ports. If any of these ports are already
+                            in use (we'll test them when you click the button) you will
+                            either need to reconfigure the ports used on
                             localhost, setup up delegation or use a reverse proxy.
                         </p>
                 }

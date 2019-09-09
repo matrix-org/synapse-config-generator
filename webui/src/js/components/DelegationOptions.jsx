@@ -1,7 +1,4 @@
-/* eslint-disable max-len */
 import React, { useState } from 'react';
-
-import style from '../../scss/main.scss';
 
 import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
@@ -14,6 +11,9 @@ import { DELEGATION_OPTIONS_UI } from '../reducers/ui-constants';
 import AccordionToggle from '../containers/AccordionToggle';
 import { nextUI } from '../reducers/setup-ui-reducer';
 import InlineError from './InlineError';
+
+const DELEGATION_LINK =
+    "https://github.com/matrix-org/synapse/blob/master/docs/federate.md"
 
 export default ({ servername, skip, onClick }) => {
 
@@ -86,7 +86,12 @@ export default ({ servername, skip, onClick }) => {
                 value={clientPort}
             />
         </InlineError>
-        <button disabled={delegatedServername && clientPortValid && fedPortValid ? undefined : true}
+        <button
+            disabled={
+                delegatedServername && clientPortValid && fedPortValid ?
+                    undefined :
+                    true
+            }
             onClick={() => {
 
                 toggle();
@@ -107,16 +112,18 @@ export default ({ servername, skip, onClick }) => {
             <Card.Body>
                 <p>
                     If you'd like your synapse to be hosted on a different server to the
-                    one known on the network by '{servername}' you can use delegation.&nbsp;
+                    one known on the network by '{servername}' you can use
+                    delegation.&nbsp;
                     <a
-                        href="https://github.com/matrix-org/synapse/blob/master/docs/federate.md"
+                        href={DELEGATION_LINK}
                         target="_blank"
                     >
                         Learn more
                 </a>
                 </p>
                 <p>
-                    If you're not sure if you need delegation, we recommending skipping this step.
+                    If you're not sure if you need delegation, we recommending
+                    skipping this step.
                 </p>
                 <button onClick={() => {
 
@@ -128,7 +135,8 @@ export default ({ servername, skip, onClick }) => {
                 </button>
                 <hr />
                 <p>
-                    Other federation servers will connect to {servername}:8448 over the network.
+                    Other federation servers will connect to {servername}:8448
+                    over the network.
                 </p>
                 <p>
                     There are two forms of delegation:
@@ -137,23 +145,26 @@ export default ({ servername, skip, onClick }) => {
                 <Tabs defaultActiveKey={defaultType} onSelect={k => setType(k)}>
                     <Tab eventKey={DELEGATION_TYPES.DNS} title={DELEGATION_TYPES.DNS}>
                         <p>
-                            You will need access to {servername}'s domain zone DNS records.
-                            This method also requires the synapse install's server to provide
-                        a valid TLS cert for {servername}
+                            You will need access to {servername}'s domain zone DNS
+                            records. This method also requires the synapse install's
+                            server to provide a valid TLS cert for {servername}
                         </p>
                         <p>
-                            You will need to add an SRV record to {servername}'s DNS zone. (Once
-                            again, we'll print the SRV record out for you later.)
+                            You will need to add an SRV record to {servername}'s DNS zone.
+                            (Once again, we'll print the SRV record out for you later.)
                         </p>
                         {portSelection}
                     </Tab>
-                    <Tab eventKey={DELEGATION_TYPES.WELL_KNOWN} title={DELEGATION_TYPES.WELL_KNOWN}>
+                    <Tab
+                        eventKey={DELEGATION_TYPES.WELL_KNOWN}
+                        title={DELEGATION_TYPES.WELL_KNOWN}
+                    >
                         <p>
                             {servername} provides the url
                             https://{servername}/.well-known/matrix/server which gives
                             federating servers information about how to contact the actual
-                            server hosting the synapse install. (Don't worry! We'll print out
-                            the .well-known file for you later.)
+                            server hosting the synapse install. (Don't worry! We'll print
+                            out the .well-known file for you later.)
                         </p>
                         {portSelection}
                     </Tab>

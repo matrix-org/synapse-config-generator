@@ -1,8 +1,6 @@
-/* eslint-disable max-len */
 import React from 'react';
 
 import ContentWrapper from '../containers/ContentWrapper';
-import ButtonDisplay from './ButtonDisplay';
 import DownloadOrCopy from './DownloadOrCopy';
 import { DELEGATION_TYPES } from '../actions/constants';
 
@@ -28,7 +26,11 @@ export default ({
                     {clientConfig}
                 </code>
             </pre>
-            <DownloadOrCopy content={clientConfig} fileName={clientConfigFileName} onClick={onClick} />
+            <DownloadOrCopy
+                content={clientConfig}
+                fileName={clientConfigFileName}
+                onClick={onClick}
+            />
         </ContentWrapper>
 
     } else {
@@ -39,23 +41,33 @@ export default ({
                 The delegation configuration needs to take place outside the installer.
             </p>
             <p>
-                You'll need to host the following at https://{serverName}/.well-known/matrix/server
+                You'll need to host the following at
+                https://{serverName}/.well-known/matrix/server
             </p>
             <pre>
                 <code>
                     {serverConfig}
                 </code>
             </pre>
-            <DownloadOrCopy content={serverConfig} fileName={serverConfigFileName} onClick={onClick} />
+            <DownloadOrCopy
+                content={serverConfig}
+                fileName={serverConfigFileName}
+                onClick={onClick}
+            />
             <p>
-                You'll also need to host the following at https://{serverName}/.well-known/matrix/client
+                You'll also need to host the following at
+                https://{serverName}/.well-known/matrix/client
             </p>
             <pre>
                 <code>
                     {clientConfig}
                 </code>
             </pre>
-            <DownloadOrCopy content={clientConfig} fileName={clientConfigFileName} onClick={onClick} />
+            <DownloadOrCopy
+                content={clientConfig}
+                fileName={clientConfigFileName}
+                onClick={onClick}
+            />
         </ContentWrapper>;
 
     }
