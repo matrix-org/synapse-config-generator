@@ -80,7 +80,9 @@ const setConfigDir = dir => ({
 export const generateSecretKeys = serverName => {
 
     return dispatch => {
+
         dispatch(getSecretKey(serverName))
+
     };
 
 };
@@ -307,28 +309,32 @@ export const writeConfig = (callback) => {
             .then(
                 res => startSynapse().then(
                     res => {
+
                         if (res.ok) {
 
                             dispatch(advanceUI());
                             callback();
 
                         } else {
+
                             dispatch(synapseStartFailed());
+
                         }
+
                     },
                     error => {
 
                         fail(error);
                         dispatch(synapseStartFailed());
 
-                    }
+                    },
                 ),
                 error => {
 
                     dispatch(fail(error));
                     dispatch(synapseStartStartFailed())
 
-                }
+                },
             )
 
     }
