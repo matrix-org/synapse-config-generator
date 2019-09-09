@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import React, { useState } from 'react';
+import React from 'react';
 
 import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
@@ -30,81 +30,105 @@ import { COMPLETE_UI } from '../reducers/ui-constants';
 import { nextUI } from '../reducers/setup-ui-reducer';
 
 const synctlLink = "https://manpages.debian.org/testing/matrix-synapse/synctl.1.en.html";
-export default ({
-    tlsType,
-    delegationType,
-    synapseStartFailed,
-    configDir,
-    onClick,
-}) => {
 
-    const toggle = useAccordionToggle(nextUI(COMPLETE_UI));
-
-    const decoratedOnClick = () => {
-
-        onClick(toggle);
-
+class CompleteSetup extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            revProxyDownloaded: false,
+            delegationDownloaded: false,
+            body: 0,
+            onClick: () => props.onClick(useAccordionToggle(nextUI(COMPLETE_UI))),
+        }
     }
 
-    const [revProxyDownloaded, setRevProxyDownloaded] = useState(false);
-    const [delegationDownloaded, setDelegationDownloaded] = useState(false);
+    render() {
+        const revProxyBody = <Card.Body>
+            <ReverseProxySampleConfig onClick={() => this.setRevProxyDownloaded(true)} />
+            <button
+                disabled={!this.state.revProxyDownloaded}
+                onClick={() => this.setBody(this.state.body + 1)}
+            >Next</button>
+        </Card.Body >
 
-    const revProxyBody = <Card.Body>
-        <ReverseProxySampleConfig onClick={() => setRevProxyDownloaded(true)} />
-        <button
-            disabled={!revProxyDownloaded}
-            onClick={() => setBody(body + 1)}
-        >Next</button>
-    </Card.Body >
+        const delegationBody = <Card.Body>
+            <DelegationSampleConfig onClick={() => this.setDelegationDownloaded(true)} />
+            <button
+                disabled={!this.state.delegationDownloaded}
+                onClick={() => this.setBody(this.state.body + 1)}
+            >Next</button>
+        </Card.Body>
 
-    const delegationBody = <Card.Body>
-        <DelegationSampleConfig onClick={() => setDelegationDownloaded(true)} />
-        <button
-            disabled={!delegationDownloaded}
-            onClick={() => setBody(body + 1)}
-        >Next</button>
-    </Card.Body>
+        const finishedBody = <Card.Body>
+            <InlineError error={
+                this.props.synapseStartFailed ? "Couldn't start synapse." : undefined
+            }>
+                <button onClick={this.state.onClick}>Start Synapse</button>
+            </InlineError>
+            <hr />
+            <p>
+                In future use <a href={synctlLink}>synctl</a> to start and stop synapse.
+                Use the following to start synapse again:
+            </p>
 
-    const finishedBody = <Card.Body>
-        <InlineError error={synapseStartFailed ? "Couldn't start synapse." : undefined}>
-            <button onClick={decoratedOnClick}>Start Synapse</button>
-        </InlineError>
-        <hr />
-        <p>
-            In future use <a href={synctlLink}>synctl</a> to start and stop synapse.
-            Use the following to start synapse again:
-        </p>
+            <pre>
+                <code>
+                    synctl start {this.props.configDir}
+                </code>
+            </pre>
+        </Card.Body>
 
-        <pre>
-            <code>
-                synctl start {configDir}
-            </code>
-        </pre>
-    </Card.Body>
+        const show = [];
 
-    const show = [];
-    const [body, setBody] = useState(0);
+        if (this.props.tlsType == TLS_TYPES.REVERSE_PROXY) {
 
-    if (tlsType == TLS_TYPES.REVERSE_PROXY) {
+            show.push(revProxyBody);
 
-        show.push(revProxyBody);
+        }
+        if (this.props.delegationType != DELEGATION_TYPES.LOCAL) {
 
-    }
-    if (delegationType != DELEGATION_TYPES.LOCAL) {
+            show.push(delegationBody)
 
-        show.push(delegationBody)
-
-    }
-    show.push(finishedBody)
+        }
+        show.push(finishedBody)
 
 
-    return <Card>
-        <AccordionToggle as={Card.Header} eventKey={COMPLETE_UI}>
-            Setup Complete
+
+        return <Card>
+            <AccordionToggle as={Card.Header} eventKey={COMPLETE_UI}>
+                Setup Complete
         </AccordionToggle>
-        <Accordion.Collapse eventKey={COMPLETE_UI}>
-            {show[body]}
-        </Accordion.Collapse>
-    </Card>
+            <Accordion.Collapse eventKey={COMPLETE_UI}>
+                {show[this.state.body]}
+            </Accordion.Collapse>
+        </Card>
+
+    }
+
+    setRevProxyDownloaded(downloaded) {
+
+        this.setState({
+            revProxyDownloaded: downloaded,
+        })
+
+    }
+
+    setDelegationDownloaded(downloaded) {
+
+        this.setState({
+            delegationDownloaded: downloaded,
+        })
+
+    }
+
+    setBody(body) {
+
+        this.setState({
+            body: body,
+        })
+
+    }
 
 }
+
+export default CompleteSetup;
