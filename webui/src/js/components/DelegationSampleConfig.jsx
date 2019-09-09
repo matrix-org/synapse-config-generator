@@ -36,7 +36,7 @@ export default ({
             <h1 className='setupCompleteTitle'>Configure Delegation</h1>
             <p>
                 You will need to add the following SRV record to your DNS zone.
-      </p>
+            </p>
             <pre>
                 <code>
                     {clientConfig}
