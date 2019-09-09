@@ -137,7 +137,7 @@ export default ({
                 <div>
                     <button
                         disabled={clientPortValid && fedPortValid ? undefined : true}
-                        onClick={setPorts()}
+                        onClick={setPorts}
                     >Verify These Ports</button>
                 </div>
             </Card.Body>
