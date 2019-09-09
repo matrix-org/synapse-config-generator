@@ -97,7 +97,11 @@ export default ({ setupUI, configUI, baseConfig }) => {
         return <ContentWrapper>
             <Accordion>
                 <BaseIntro />
-                <div style={setupUI.activeBlocks.length ? undefined : { display: "none" }}>
+                <div style={
+                    setupUI.activeBlocks.length ?
+                        undefined :
+                        { display: "none" }
+                }>
                     {SETUP_ORDER.map(blockMapping)}
                 </div>
             </Accordion>

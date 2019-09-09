@@ -2,14 +2,10 @@ import { connect } from 'react-redux';
 
 import DelegationSampleConfig from '../components/DelegationSampleConfig';
 
-import { advanceUI } from '../actions';
-
 import DNSConfig from '../templates/dns-srv';
 import FedWellKnownConfig from '../templates/federation-well-known'
 import ClientWellKnownConfig from '../templates/client-well-known'
 import { DELEGATION_TYPES } from '../actions/constants';
-
-// synapseServerName: state.baseConfig.delegationServerName ? state.baseConfig.delegationServerName : state.baseConfig.servername,
 
 const serverConfig = state => {
 

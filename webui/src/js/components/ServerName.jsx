@@ -44,7 +44,10 @@ export default ({ onClick }) => {
                     Your server name will be used to establish User IDs (e.g.
                     `@user:server.name`) and Room Aliases (e.g. `#room:server.name`).
                 </p>
-                <InlineError error={!serverNameValid ? "The servername may only be alphanumeric characters" : undefined}>
+                <InlineError error={!serverNameValid ?
+                    "The servername may only be alphanumeric characters" :
+                    undefined
+                }>
                     <input
                         type="text"
                         onChange={onChange}

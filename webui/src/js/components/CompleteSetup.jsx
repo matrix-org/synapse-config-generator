@@ -13,6 +13,7 @@ import { TLS_TYPES, DELEGATION_TYPES } from '../actions/constants';
 import { COMPLETE_UI } from '../reducers/ui-constants';
 import { nextUI } from '../reducers/setup-ui-reducer';
 
+const synctlLink = "https://manpages.debian.org/testing/matrix-synapse/synctl.1.en.html";
 export default ({
     tlsType,
     delegationType,
@@ -20,10 +21,13 @@ export default ({
     configDir,
     onClick,
 }) => {
+
     const toggle = useAccordionToggle(nextUI(COMPLETE_UI));
 
     const decoratedOnClick = () => {
+
         onClick(toggle);
+
     }
 
     const [revProxyDownloaded, setRevProxyDownloaded] = useState(false);
@@ -51,9 +55,8 @@ export default ({
         </InlineError>
         <hr />
         <p>
-            In future use <a href="https://manpages.debian.org/testing/matrix-synapse/synctl.1.en.html">
-                synctl</a> to start and stop synapse. Use the following to start synapse again:
-
+            In future use <a href={synctlLink}>synctl</a> to start and stop synapse.
+            Use the following to start synapse again:
         </p>
 
         <pre>

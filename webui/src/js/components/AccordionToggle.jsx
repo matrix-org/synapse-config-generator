@@ -4,6 +4,7 @@ import { reset } from 'ansi-colors';
 import Chevron from './Chevron';
 
 export default ({ active, open, children, eventKey, as, reset }) => {
+
     const clickable = active & !open;
     const toggle = useAccordionToggle(eventKey);
     const decoratedOnClick = () => {

@@ -17,7 +17,9 @@ export default ({ started, servername, onClick }) => {
 
     }
 
-    const prompt = servername ? "Configuring " + servername : "Let's configure your Synapse server."
+    const prompt = servername ?
+        "Configuring " + servername :
+        "Let's configure your Synapse server."
 
     return <ContentWrapper>
         <div className='baseintro'>
@@ -26,8 +28,10 @@ export default ({ started, servername, onClick }) => {
             <p>{prompt}</p>
             {
                 !started ?
-                    <ButtonDisplay><button onClick={wrappedOnClick}>Get Started</button></ButtonDisplay>
-                    : undefined
+                    <ButtonDisplay>
+                        <button onClick={wrappedOnClick}>Get Started</button>
+                    </ButtonDisplay> :
+                    undefined
             }
         </div>
     </ContentWrapper>

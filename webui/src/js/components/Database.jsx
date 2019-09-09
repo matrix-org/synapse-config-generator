@@ -32,6 +32,7 @@ export default ({
     const toggle = useAccordionToggle(nextUI(DATABASE_UI));
 
     const submitPostrgess = () => {
+
         toggle();
         onClick({
             databaseType: DATABASE_TYPES.POSTGRES,
@@ -40,13 +41,16 @@ export default ({
             databaseUsername,
             databasePassword,
         })
+
     }
 
     const submitSQLite3 = () => {
+
         toggle();
         onClick({
-            databaseType: DATABASE_TYPES.SQLITE3
+            databaseType: DATABASE_TYPES.SQLITE3,
         });
+
     }
 
     return <Card>
@@ -60,13 +64,18 @@ export default ({
 
                 <Tabs defaultActiveKey={defaultDatabase} onSelect={k => setDatabase(k)}>
                     <Tab eventKey={DATABASE_TYPES.POSTGRES} title={"Postgres"}>
-                        This will connect to the given Postgres database via {DATABASE_TYPES.POSTGRES}
+                        This will connect to the given Postgres database via
+                        {DATABASE_TYPES.POSTGRES}
                         <p>
                             Host
                         </p>
                         <input
                             type="text"
-                            onChange={e => setHost(e.target.value ? e.target.value : hostDefault)}
+                            onChange={e => setHost(
+                                e.target.value ?
+                                    e.target.value :
+                                    hostDefault,
+                            )}
                             autoFocus
                             placeholder="localhost"
                         />

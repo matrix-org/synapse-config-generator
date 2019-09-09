@@ -5,7 +5,8 @@ import { resetUI } from '../actions';
 import { DONE_UI } from '../reducers/ui-constants';
 
 const mapStateToProps = (state, { eventKey, as, children }) => ({
-    active: state.setupUI.activeBlocks.includes(eventKey) && state.setupUI.activeBlocks[state.setupUI.activeBlocks.length - 1] != DONE_UI,
+    active: state.setupUI.activeBlocks.includes(eventKey) &&
+        state.setupUI.activeBlocks[state.setupUI.activeBlocks.length - 1] != DONE_UI,
     open: state.setupUI.activeBlocks[state.setupUI.activeBlocks.length - 1] == eventKey,
     eventKey,
     as,

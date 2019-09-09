@@ -117,12 +117,15 @@ const acme = config => {
 const database = config => {
 
     if (config.databaseType == DATABASE_TYPES.SQLITE3) {
+
         return {
             database: {
                 name: config.databaseType,
-            }
+            },
         }
+
     } else {
+
         return {
             database: {
                 name: config.databaseType,
@@ -131,10 +134,12 @@ const database = config => {
                     password: config.databasePassword,
                     host: config.databaseHost,
                     database: config.database,
-                }
-            }
+                },
+            },
         }
+
     }
+
 }
 
 export const baseConfigToSynapseConfig = config => {

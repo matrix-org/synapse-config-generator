@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Done from '../components/Done';
 
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = state => ({
     configDir: state.baseConfig.configDir,
 });
 

@@ -18,7 +18,8 @@ export default ({ configDir }) => {
                     Synapse is running!
                 </p>
                 <p>
-                    There are many settings to play with in the yaml files in <code>{configDir}</code>.
+                    There are many settings to play with in the yaml files in
+                    <code>{configDir}</code>.
                 </p>
             </Card.Body>
         </Accordion.Collapse>
