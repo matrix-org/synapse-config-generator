@@ -72,4 +72,3 @@ const filterObj = (object, filterList) => {
         );
 
 }
-
