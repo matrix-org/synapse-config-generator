@@ -27,7 +27,6 @@ def validate_schema(schema):
         @wraps(func)
         def _do_validate(self, request):
             body = json.loads(request.content.read())
-            print(body)
             validate(instance=body, schema=schema)
             return func(self, request, body)
 
