@@ -59,3 +59,5 @@ server = Server(Model(args.config_dir))
 
 print("\nGo to https://localhost:{}\n".format(port))
 server.app.run("localhost", port, logFile=logFile)
+
+_version__ = "1.3.1"
