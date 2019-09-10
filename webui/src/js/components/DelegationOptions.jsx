@@ -71,10 +71,11 @@ export default ({ servername, skip, onClick }) => {
         <p>Please enter the domain name of the server synapse is installed on.</p>
         <input
             type="text"
-            onChange={e => setDelegatedServerName(e.target.value)}
+            onChange={e => setDelegatedServerName(e.target.value.toLowerCase())}
             autoFocus
             placeholder="Enter server name"
             value={delegatedServername}
+            className="lowercaseInput"
         />
         <p>
             Homeserver Port
@@ -84,7 +85,6 @@ export default ({ servername, skip, onClick }) => {
                 type="text"
                 onChange={onFederationChange}
                 className={fedPortValid ? undefined : "invalid"}
-                autoFocus
                 placeholder="Use Default 8448"
                 value={fedPort}
             />
@@ -97,7 +97,6 @@ export default ({ servername, skip, onClick }) => {
                 type="text"
                 onChange={onClientChange}
                 className={clientPortValid ? undefined : "invalid"}
-                autoFocus
                 placeholder="Use Default 443"
                 value={clientPort}
             />

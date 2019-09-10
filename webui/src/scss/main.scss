@@ -257,3 +257,7 @@ select {
     background-color: $smoke;
     padding: 1rem;
 }
+
+.lowercaseInput {
+    text-transform: lowercase;
+}

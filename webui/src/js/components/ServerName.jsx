@@ -32,7 +32,7 @@ export default ({ onClick }) => {
 
     const onChange = event => {
 
-        setServerName(event.target.value);
+        setServerName(event.target.value.toLowerCase());
         setServerNameValid(validator.test(event.target.value));
 
     };
@@ -55,7 +55,7 @@ export default ({ onClick }) => {
                 <p>
                     Your server name usually matches your domain. For example, the
                     matrix.org server is simply called `matrix.org`.
-                        </p>
+                </p>
                 <p>
                     Your server name will be used to establish User IDs (e.g.
                     `@user:server.name`) and Room Aliases (e.g. `#room:server.name`).
@@ -69,6 +69,7 @@ export default ({ onClick }) => {
                         onChange={onChange}
                         autoFocus
                         placeholder="Enter server name"
+                        className="lowercaseInput"
                     />
                 </InlineError>
                 <div>
