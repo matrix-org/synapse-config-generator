@@ -44,12 +44,11 @@ class Server:
         self.model = model
 
     def server_webui(self, request):
-        client_path = abspath(join(dirname(abspath(__file__)), "../webui/dist/"))
+        client_path = abspath(join(dirname(abspath(__file__)), "../../webui/dist/"))
         print(client_path)
         return File(client_path)
 
-    app.route("/topology_webui", branch=True)(server_webui)
-    app.route("/topology_webui/", branch=True)(server_webui)
+    app.route("/", branch=True)(server_webui)
 
     @app.route("/setup", methods=["GET"])
     def get_config_setup(self, request):
