@@ -36,7 +36,7 @@ const reportStats = "reportStats";
 const secretKeyLoaded = "secretKeyLoaded";
 const secretKey = "secretKey";
 const delegationType = "delegationType";
-const delegationServerName = "delegationServerName";
+const delegationServername = "delegationServername";
 const delegationFederationPort = "delegationFederationPort";
 const delegationClientPort = "delegationClientPort";
 const reverseProxy = "reverseProxy";
@@ -74,7 +74,7 @@ const state = {
         [secretKeyLoaded]: false,
         [secretKey]: "asdfsadf",
         [delegationType]: "local|well_known|DNS_SRV",
-        [delegationServerName]: "name",
+        [delegationServername]: "name",
         [delegationFederationPort]: "\"\"|325",
         [delegationClientPort]: "\"\"|325",
         [reverseProxy]: "nginx|caddy|apache|haproxy|other|none",
@@ -114,7 +114,7 @@ export const uiStateMapping = {
     ],
     [DELEGATION_OPTIONS_UI]: [
         delegationType,
-        delegationServerName,
+        delegationServername,
         delegationClientPort,
         delegationFederationPort,
     ],

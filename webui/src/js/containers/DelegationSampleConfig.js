@@ -32,7 +32,7 @@ const serverConfig = state => {
     } else {
 
         return FedWellKnownConfig({
-            synapseServerName: state.delegationServerName,
+            synapseServerName: state.delegationServername,
             delegationSynapsePort: state.delegationFederationPort ?
                 state.delegationFederationPort :
                 8448,
@@ -47,7 +47,7 @@ const clientConfig = state => {
     if (state.delegationType == DELEGATION_TYPES.WELL_KNOWN) {
 
         return ClientWellKnownConfig({
-            synapseServerName: state.delegationServerName,
+            synapseServerName: state.delegationServername,
             delegationClientPort: state.delegationClientPort ?
                 state.delegationClientPort :
                 443,
@@ -57,7 +57,7 @@ const clientConfig = state => {
 
         return DNSConfig({
             serverName: state.servername,
-            synapseServerName: state.delegationServerName,
+            synapseServerName: state.delegationServername,
             delegationClientPort: state.delegationClientPort ?
                 state.delegationClientPort :
                 443,

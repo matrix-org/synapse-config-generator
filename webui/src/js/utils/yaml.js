@@ -117,8 +117,8 @@ const acme = config => {
     if (config.tls == TLS_TYPES.ACME) {
 
         return {
-            acme_domain: config.delegationServerName ?
-                config.delegationServerName :
+            acme_domain: config.delegationServername ?
+                config.delegationServername :
                 config.servername,
         }
 
