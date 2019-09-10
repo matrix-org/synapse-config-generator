@@ -20,7 +20,7 @@ from os import devnull, path
 
 
 from model import Model
-from server import Server
+from api import Server
 
 port = 16333
 

@@ -22,7 +22,7 @@ from model.errors import (
     ServernameNotSetError,
 )
 
-from .server import Server
+from .api import Server
 
 
 class ErrorHandledServer(Server):
