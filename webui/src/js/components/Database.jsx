@@ -75,7 +75,7 @@ export default ({
         </AccordionToggle>
         <Accordion.Collapse eventKey={DATABASE_UI}>
             <Card.Body>
-                <p>Synapse can use either SQLite3 or Postgres as it's database.</p>
+                <p>Synapse can use either SQLite3 or Postgres as its database.</p>
                 <p>Postgres is recommended.</p>
 
                 <Tabs defaultActiveKey={defaultDatabase} onSelect={k => setDatabase(k)}>
