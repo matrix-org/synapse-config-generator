@@ -31,6 +31,8 @@ from twisted.web.server import Site
 from model import Model
 from server import Server
 
+port = 16333
+
 parser = argparse.ArgumentParser(description="Synapse configuration util")
 
 parser.add_argument(
@@ -42,6 +44,10 @@ parser.add_argument(
 
 parser.add_argument("-v", action="store_true", help="Use verbose logging")
 
+parser.add_argument(
+    "--port", type=int, default=16333, help="The port on which the webui is served"
+)
+
 args = parser.parse_args()
 
 if args.v:
@@ -49,6 +55,8 @@ if args.v:
 else:
     logFile = open(devnull, "w")
 
+if args.port:
+    port = args.port
 
 if not path.isdir(args.config_dir):
     print("'{}' is not a directory.".format(args.config_dir))
@@ -57,4 +65,7 @@ if not path.isdir(args.config_dir):
 
 server = Server(Model(args.config_dir))
 
-server.app.run("localhost", 16333, logFile=logFile)
+
+print("\nGo to https://localhost:{}\n".format(port))
+server.app.run("localhost", port, logFile=logFile)
+
