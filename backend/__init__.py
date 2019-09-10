@@ -1,3 +1,5 @@
+#! python
+
 # -*- coding: utf-8 -*-
 # Copyright 2014 - 2016 OpenMarket Ltd
 #
@@ -13,7 +15,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#! python
 import argparse
 import os.path as path
 import sys
