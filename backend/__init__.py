@@ -16,24 +16,23 @@
 # limitations under the License.
 
 import argparse
-import os.path as path
 import sys
-
-from server import Server
-from model import Model
+from os import path
+from os import devnull
 
 from twisted.internet import endpoints, reactor
-from twisted.web.server import Site
-
 from twisted.logger import (
     eventsFromJSONLogFile,
-    textFileLogObserver,
     globalLogPublisher,
+    textFileLogObserver,
 )
+from twisted.web.server import Site
 
-globalLogPublisher.addObserver(textFileLogObserver(sys.stdout))
+from model import Model
+from server import Server
 
 parser = argparse.ArgumentParser(description="Synapse configuration util")
+
 parser.add_argument(
     "config_dir",
     metavar="CONFIG_DIR",
@@ -41,16 +40,21 @@ parser.add_argument(
     help="Path the directory containing synapse's configuration files.",
 )
 
+parser.add_argument("-v", action="store_true", help="Use verbose logging")
 
 args = parser.parse_args()
+
+if args.v:
+    logFile = None
+else:
+    logFile = open(devnull, "w")
+
 
 if not path.isdir(args.config_dir):
     print("'{}' is not a directory.".format(args.config_dir))
     exit(1)
 
 
-model = Model(args.config_dir)
+server = Server(Model(args.config_dir))
 
-server = Server(model)
-
-server.app.run("localhost", 8888)
+server.app.run("localhost", 8888, logFile=logFile)
