@@ -13,21 +13,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from os.path import abspath, dirname, join, isabs
+import subprocess
+from os.path import abspath, dirname, isabs, join
 
 from canonicaljson import json
-
 from twisted.web.static import File
 
 from klein import Klein
-
-from .utils import port_checker
 from model import constants
+
 from .schemas import BASE_CONFIG_SCHEMA, CERTS_SCHEMA, PORTS_SCHEMA, SECRET_KEY_SCHEMA
-from .utils import validate_schema
-
-
-import subprocess
+from .utils import port_checker, validate_schema
 
 
 class Server:
