@@ -44,7 +44,7 @@ def port_checker(port):
             sock.bind(("0.0.0.0", port))
             sock.listen()
             return True
-        except:
+        except Exception:
             return False
 
 

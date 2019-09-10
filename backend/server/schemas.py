@@ -39,15 +39,6 @@ BASE_CONFIG_SCHEMA = {
     "required": ["server_name", "report_stats", "database"],
 }
 
-CERT_PATHS_SCHEMA = {
-    "type": "object",
-    "properties": {
-        "cert_path": {"type": "string", "minlength": 1},
-        "cert_key_path": {"type": "string", "minlength": 1},
-    },
-    "required": ["cert_path", "cert_key_path"],
-}
-
 CERTS_SCHEMA = {
     "type": "object",
     "properties": {

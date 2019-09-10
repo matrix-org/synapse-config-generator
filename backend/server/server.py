@@ -23,18 +23,11 @@ from klein import Klein
 
 from .utils import port_checker
 from model import constants
-from .schemas import (
-    BASE_CONFIG_SCHEMA,
-    CERT_PATHS_SCHEMA,
-    CERTS_SCHEMA,
-    PORTS_SCHEMA,
-    SECRET_KEY_SCHEMA,
-)
-from .utils import validate_schema, log_body_if_fail
+from .schemas import BASE_CONFIG_SCHEMA, CERTS_SCHEMA, PORTS_SCHEMA, SECRET_KEY_SCHEMA
+from .utils import validate_schema
 
 
 import subprocess
-import sys
 
 
 class Server:
@@ -85,7 +78,7 @@ class Server:
             try:
                 with open(path, "r"):
                     result[name] = {"invalid": False, "absolute_path": path}
-            except:
+            except Exception:
                 result[name] = {"invalid": True}
         return json.dumps(result)
 

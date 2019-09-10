@@ -13,26 +13,24 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import yaml
 import subprocess
-
 from os import mkdir
-from os.path import abspath, join, exists, isdir
+from os.path import abspath, isdir, join
 
-from synapse.config.homeserver import HomeServerConfig
-
-from .constants import CONFIG_LOCK, CONFIG_LOCK_DATA, DATA_SUBDIR, SERVER_NAME
-from .errors import BaseConfigInUseError, ConfigNotFoundError, ServernameNotSetError
-from .config import create_config
-from .util import is_subpath
+import yaml
 
 from synapse.config import find_config_files
+
+from .config import create_config
+from .constants import CONFIG_LOCK, DATA_SUBDIR
+from .errors import BaseConfigInUseError
+from .util import is_subpath
 
 
 class Model:
     """
-    The Model brokers modification of the config file and signing keys in the config
-    directory.
+    The Model brokers modification of the config file and signing keys in the
+    config directory.
     """
 
     def __init__(self, config_dir):
@@ -83,10 +81,10 @@ class Model:
 
     def config_in_use(self):
         """
-        Checks if we set whether the config is in use. If it was set up by the system
-        but synapse wasn't launched yet we will have set this to False. However if
-        it's not present we assume someone else has set up synapse before so we assume
-        the config is in use.
+        Checks if we set whether the config is in use. If it was set up by the
+        system but synapse wasn't launched yet we will have set this to False.
+        However if it's not present we assume someone else has set up synapse
+        before so we assume the config is in use.
         """
         config = {}
         config_files = find_config_files([self.config_dir])

@@ -16,17 +16,8 @@
 # limitations under the License.
 
 import argparse
-import sys
-from os import path
-from os import devnull
+from os import devnull, path
 
-from twisted.internet import endpoints, reactor
-from twisted.logger import (
-    eventsFromJSONLogFile,
-    globalLogPublisher,
-    textFileLogObserver,
-)
-from twisted.web.server import Site
 
 from model import Model
 from server import Server
@@ -68,4 +59,3 @@ server = Server(Model(args.config_dir))
 
 print("\nGo to https://localhost:{}\n".format(port))
 server.app.run("localhost", port, logFile=logFile)
-

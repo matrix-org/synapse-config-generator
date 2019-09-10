@@ -15,6 +15,7 @@
 
 from jsonschema import ValidationError
 from simplejson.errors import JSONDecodeError
+
 from model.errors import (
     BaseConfigInUseError,
     ConfigNotFoundError,
@@ -42,7 +43,8 @@ class ErrorHandledServer(Server):
     def not_initialised(self, request, failure):
         request.setResponseCode(500)
         return (
-            "Config file not setup, please initialise it using the /servername endpoint"
+            "Config file not setup, please initialise it using the"
+            " /servername endpoint"
         )
 
     @app.handle_errors(ConfigNotFoundError)

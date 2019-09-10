@@ -17,11 +17,7 @@ from os.path import join
 
 import yaml
 
-from synapse.config.database import DatabaseConfig
 from synapse.config.homeserver import HomeServerConfig
-from synapse.config.logger import LoggingConfig
-from synapse.config.server import ServerConfig
-from synapse.config.tls import TlsConfig
 
 
 def create_config(config_dir_path, data_dir_path, conf):

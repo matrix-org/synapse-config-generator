@@ -13,6 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# from .error_handlers import ErrorHandledServer as Server
 
 from .error_handlers import ErrorHandledServer as Server
+
+__all__ = ["Server"]
