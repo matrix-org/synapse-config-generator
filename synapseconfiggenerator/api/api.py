@@ -25,6 +25,8 @@ from model import constants
 from .schemas import BASE_CONFIG_SCHEMA, CERTS_SCHEMA, PORTS_SCHEMA, SECRET_KEY_SCHEMA
 from .utils import port_checker, validate_schema
 
+from pkg_resources import resource_filename
+
 
 class Server:
     app = Klein()
@@ -33,7 +35,12 @@ class Server:
         self.model = model
 
     def server_webui(self, request):
-        client_path = abspath(join(dirname(abspath(__file__)), "../../webui/dist/"))
+        client_path = abspath(
+            join(
+                dirname(abspath(__file__)),
+                resource_filename("synapseconfiggenerator", "static"),
+            )
+        )
         return File(client_path)
 
     app.route("/", branch=True)(server_webui)
