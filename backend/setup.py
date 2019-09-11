@@ -20,9 +20,9 @@ from setuptools import setup, find_packages
 REQUIREMENTS = ["pyyaml", "matrix-synapse", "klein"]
 
 setup(
-    name="sytopology",
+    name="synapse-config-generator",
     version="0.0.1",
-    scripts=["sytopology"],
+    scripts=["synapse-config-generator"],
     packages=find_packages(),
     install_requires=REQUIREMENTS,
 )

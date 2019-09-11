@@ -1,4 +1,4 @@
-# sytopology webui
+# synapse-config-generator webui
 
 This is the web based interface for generating configuration files for synapse.
 

@@ -1,12 +1,12 @@
-Sytopology
-==========
+synapse-config-generator (SCG)
+==============================
 
-Sytopology is a config generator for synapse. It gathers together the critical
-descision points of a first time synapse install and provides a pretty ui to
-walk new users through them. The result of using sytopology is a yaml file akin
-to the sample config found in
+synapse-config-generator is a config generator for synapse. It gathers together
+the critical descision points of a first time synapse install and provides a
+pretty ui to walk new users through them. The result of using
+SCG is a yaml file akin to the sample config found in
 `synapse's docs <https://github.com/matrix-org/synapse/tree/develop/docs>`_.
-Through using sytopology the user also gains a knowledge of the environment in
+Through using SCG the user also gains a knowledge of the environment in
 which synapse will be running.
 
 
@@ -17,7 +17,7 @@ Backend
 
   cd backend
   pip install .
-  sytopology config_dir
+  synapse-config-generator config_dir
 
 
 Frontend
@@ -29,4 +29,3 @@ Start the Backend and then
   cd view/webui
   yarn install
   yarn watch
-
