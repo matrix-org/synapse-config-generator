@@ -16,7 +16,7 @@
 from jsonschema import ValidationError
 from simplejson.errors import JSONDecodeError
 
-from model.errors import (
+from synapseconfiggenerator.model.errors import (
     BaseConfigInUseError,
     ConfigNotFoundError,
     ServernameNotSetError,
