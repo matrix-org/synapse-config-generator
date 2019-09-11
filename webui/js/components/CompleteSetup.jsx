@@ -23,7 +23,7 @@ import useAccordionToggle from 'react-bootstrap/useAccordionToggle';
 import ReverseProxySampleConfig from '../containers/ReverseProxySampleConfig'
 import DelegationSampleConfig from '../containers/DelegationSampleConfig';
 import AccordionToggle from '../containers/AccordionToggle';
-import InlineError from '../components/InlineError';
+import InlineError from './InlineError';
 
 import { TLS_TYPES, DELEGATION_TYPES } from '../actions/constants';
 import { COMPLETE_UI } from '../reducers/ui-constants';

@@ -1,1 +1,6 @@
+# Backend
 config_dir
+
+# Yarn and webpack
+node_modules
+yarn-error.log

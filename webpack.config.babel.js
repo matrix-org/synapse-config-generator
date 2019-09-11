@@ -4,10 +4,14 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import HtmlWebpackTagsPlugin from 'html-webpack-tags-plugin';
 
 export default {
-    entry: ['./src/js/index.jsx', './src/scss/main.scss', './src/scss/bootstrap.min.css'],
+    entry: [
+        './webui/js/index.jsx',
+        './webui/scss/main.scss',
+        './webui/scss/bootstrap.min.css',
+    ],
     watch: true,
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'static'),
         filename: 'bundle.js',
     },
     resolve: {
@@ -62,7 +66,7 @@ export default {
     plugins: [
         new HtmlWebpackPlugin({
             hash: true,
-            filename: __dirname + '/dist/index.html',
+            filename: __dirname + '/static/index.html',
             title: 'Topology - The synapse configuration tool',
         }),
         new HtmlWebpackTagsPlugin({

@@ -25,4 +25,5 @@ setup(
     scripts=["synapseconfiggenerator/synapse-config-generator"],
     packages=find_packages(),
     install_requires=REQUIREMENTS,
+    include_package_data=["static"],
 )
