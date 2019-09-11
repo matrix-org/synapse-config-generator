@@ -23,7 +23,6 @@ setup(
     name="synapse-config-generator",
     version="0.0.1",
     scripts=["synapseconfiggenerator/synapse-config-generator"],
-    packages=["synapseconfiggenerator"],
-    py_modules=["synapseconfiggenerator/model", "synapseconfiggenerator/api"],
+    packages=find_packages(),
     install_requires=REQUIREMENTS,
 )
