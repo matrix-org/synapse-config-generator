@@ -23,6 +23,8 @@ The project is broken down into three parts. The api is stateless except for the
 config directory which is passed to it at startup.
 
 
+::
+
    +-----------+       +-----------+       +-------------+
    |           |       |           |       |             |
    |   webui   |<----->|    api    |<----->|   synapse   |
@@ -30,7 +32,8 @@ config directory which is passed to it at startup.
    +-----------+       +-----------+       +-------------+
 
 
-## API
+API
+---
 
 The api is a small server written using [klein](https://github.com/twisted/klein). 
 
@@ -46,7 +49,8 @@ synapse. This is through a post to the `/config` endpoint.
 
 The structure of the api is as follows:
 
-### Api and modul modules
+Api and model modules
+~~~~~~~~~~~~~~~~~~~~~
 
 The `api` module sets up the endpoints in klein and validates each request against
 a json-schema.
@@ -57,15 +61,17 @@ model can check if the setup has been completed before, whether a config
 exists, can write out the completed config and can creat secret keys for
 the server.
 
-### sytopology script
+sytopology script
+~~~~~~~~~~~~~~~~~
 
 The sytopology script configures and starts the server.
 
 
-## webui
+webui
+-----
 
 The webui is written in
-react-redux_. 
+react and redux_. 
 
 All state is kept within redux. The `js/reducers/state.js` file compiles an example
 state which contains all the possible entries in the state. Note that this example
@@ -87,7 +93,8 @@ global state through their respective containers in `js/containers`.
 
 Requests to the api are handled by `js/api`
 
-### Extending the accordion
+Extending the accordion
+~~~~~~~~~~~~~~~~~~~~~~~
 
 The list of constants in `js/reducers/ui-constants.js` dictates the enumeration and
 order of the cards in the accordion.
@@ -96,7 +103,8 @@ To extend the accordion with a new card create a component in `js/components`,
 include a constant for it in `js/reducers/ui-constants` and a mapping from that
 constant to the component in `js/components/UI.jsx`
 
-### Reseting state
+Reseting state
+~~~~~~~~~~~~~~
 
 When an earlier card to the current state is toggled by a user the state is
 reset to what it was before that earlier card was initially activated.
@@ -112,7 +120,7 @@ No two cards should manipulate the same state. So be careful when you are
 invoking or creating actions and reducers.
 
 
-.. _react-redux https://redux.js.org/introduction/getting-started
+.. _redux https://redux.js.org/introduction/getting-started
 
 .. _sample_config https://github.com/matrix-org/synapse/tree/develop/docs
 __ _sample_config
