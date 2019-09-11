@@ -22,7 +22,8 @@ REQUIREMENTS = ["pyyaml", "matrix-synapse", "klein"]
 setup(
     name="synapse-config-generator",
     version="0.0.1",
-    scripts=["synapse-config-generator"],
-    packages=find_packages(),
+    scripts=["synapseconfiggenerator/synapse-config-generator"],
+    packages=["synapseconfiggenerator"],
+    py_modules=["synapseconfiggenerator/model", "synapseconfiggenerator/api"],
     install_requires=REQUIREMENTS,
 )

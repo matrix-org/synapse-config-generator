@@ -19,8 +19,8 @@ import argparse
 from os import devnull, path
 
 
-from model import Model
-from api import Server
+from synapseconfiggenerator.model import Model
+from synapseconfiggenerator.api import Server
 
 port = 16333
 
