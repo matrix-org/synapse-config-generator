@@ -9,23 +9,11 @@ SCG is a yaml file akin to the sample config found in
 Through using SCG the user also gains a knowledge of the environment in
 which synapse will be running.
 
-
-Backend
-=======
+Getting started
+===============
 
 .. code::
 
   cd backend
   pip install .
   synapse-config-generator config_dir
-
-
-Frontend
-========
-Start the Backend and then
-
-.. code:: bash
-
-  cd view/webui
-  yarn install
-  yarn watch

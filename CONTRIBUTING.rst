@@ -119,3 +119,10 @@ This is done by simply detailing every piece of state set by your card in
 No two cards should manipulate the same state. So be careful when you are
 invoking or creating actions and reducers.
 
+Compiling the frontend
+======================
+
+.. code:: javascript
+
+    yarn install .
+    yarn watch
