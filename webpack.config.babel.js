@@ -11,7 +11,7 @@ export default {
     ],
     watch: true,
     output: {
-        path: path.resolve(__dirname, 'static'),
+        path: path.resolve(__dirname, 'synapseconfiggenerator/static'),
         filename: 'bundle.js',
     },
     resolve: {
@@ -66,11 +66,11 @@ export default {
     plugins: [
         new HtmlWebpackPlugin({
             hash: true,
-            filename: __dirname + '/static/index.html',
+            filename: __dirname + '/synapseconfiggenerator/static/index.html',
             title: 'Topology - The synapse configuration tool',
         }),
         new HtmlWebpackTagsPlugin({
-            tags: ['css/bootstrap.min.css'],
+            tags: ['synapseconfiggenerator/css/bootstrap.min.css'],
         }),
     ],
 };
