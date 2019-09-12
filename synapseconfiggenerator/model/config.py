@@ -24,16 +24,18 @@ def create_config(config_dir_path, data_dir_path, conf):
     server_name = conf["server_name"]
     del conf["server_name"]
 
-    server_config_in_use = conf["server_config_in_use"]
-    del conf["server_config_in_use"]
+    server_config_in_use = conf.get("server_config_in_use")
+    if server_config_in_use is not None:
+        del conf["server_config_in_use"]
 
-    database_conf = conf["database"]
-    del conf["database"]
+    database_conf = conf.get("database")
+    if database_conf is not None:
+        del conf["database"]
 
-    if database_conf["name"] == "sqlite3":
-        database_conf.setdefault(
-            "args", {"database": join(data_dir_path, "homeserver.db")}
-        )
+        if database_conf["name"] == "sqlite3":
+            database_conf.setdefault(
+                "args", {"database": join(data_dir_path, "homeserver.db")}
+            )
 
     config_args = {
         "config_dir_path": config_dir_path,
