@@ -20,7 +20,7 @@ from canonicaljson import json
 from twisted.web.static import File
 
 from klein import Klein
-from model import constants
+from synapseconfiggenerator.model import constants
 
 from .schemas import BASE_CONFIG_SCHEMA, CERTS_SCHEMA, PORTS_SCHEMA, SECRET_KEY_SCHEMA
 from .utils import port_checker, validate_schema
