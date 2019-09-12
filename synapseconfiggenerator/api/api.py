@@ -35,13 +35,7 @@ class Server:
         self.model = model
 
     def server_webui(self, request):
-        client_path = abspath(
-            join(
-                dirname(abspath(__file__)),
-                resource_filename("synapseconfiggenerator", "static"),
-            )
-        )
-        return File(client_path)
+        return File(resource_filename("synapseconfiggenerator", "static/"))
 
     app.route("/", branch=True)(server_webui)
 

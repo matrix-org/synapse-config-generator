@@ -20,10 +20,10 @@ from setuptools import setup, find_packages
 REQUIREMENTS = ["pyyaml", "matrix-synapse", "klein"]
 
 setup(
-    name="synapse-config-generator",
+    name="synapseconfiggenerator",
     version="0.0.1",
     scripts=["synapseconfiggenerator/synapse-config-generator"],
     packages=find_packages(),
     install_requires=REQUIREMENTS,
-    package_data={"": "static"},
+    include_package_data=True,
 )
