@@ -21,6 +21,34 @@ from synapse.config.homeserver import HomeServerConfig
 
 
 def create_config(config_dir_path, data_dir_path, conf):
+    """
+    Generates a config by interfacing with synapse's
+    `synapse.config.homeserver.HomeSErverConfig`. See
+    `synapse.config._base.Config.generate_config` for all options.
+
+    Args:
+        config_dir_path (str): Path to config directory.
+        data_dir_path (str): Path to the data directory.
+        conf (dict): Options for the config generator.
+            example conf = {
+                "server_name": "banterserver",
+                "listeners": [
+                    {
+                        "port": 8008,
+                        "resources": [{"names": ["client", "federation"]}],
+                        "tls": True,
+                        "type": "http",
+                    }
+                ],
+                "report_stats": True,
+                "tls_certificate_path": self.tls_certificate_path,
+                "tls_private_key_path": self.tls_private_key_path,
+            }
+
+    Returns
+        (dict): {"filename": "config_content"}
+    """
+
     server_name = conf["server_name"]
     del conf["server_name"]
 
@@ -41,9 +69,9 @@ def create_config(config_dir_path, data_dir_path, conf):
         "config_dir_path": config_dir_path,
         "data_dir_path": data_dir_path,
         "server_name": server_name,
-        **conf,
         "database_conf": database_conf,
         "generate_secrets": True,
+        **conf,
     }
 
     home_server_config = HomeServerConfig()

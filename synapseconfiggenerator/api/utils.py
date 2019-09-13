@@ -23,6 +23,16 @@ import socket
 
 
 def validate_schema(schema):
+    """Decorator that wraps klein routes. It validates the schema of the
+    request's body against `schema`. This is not a transparent decorator.
+
+    A normal route for klein has the following signature:
+    def fun(self, request):
+
+    The signature for a route wrapped with validate_schema should be:
+    def fun(self, request, body):
+    """
+
     def _wrap_validate(func):
         @wraps(func)
         def _do_validate(self, request):
@@ -36,6 +46,12 @@ def validate_schema(schema):
 
 
 def port_checker(port):
+    """Checks that synapse can spawn a listener on `port`
+    Returns
+        True if port is valid port and can be listened on.
+        False otherwise.
+    """
+
     if port < 0 or 65535 < port:
         return False
 
@@ -49,6 +65,8 @@ def port_checker(port):
 
 
 def log_body_if_fail(func):
+    """Logs the body of the request if the request failed."""
+
     @wraps(func)
     def _log_wrapper(self, request):
         try:
