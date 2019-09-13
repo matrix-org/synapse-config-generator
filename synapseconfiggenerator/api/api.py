@@ -113,11 +113,6 @@ class Server:
                 result[name] = {"invalid": True}
         return json.dumps(result)
 
-    @app.route("/certs", methods=["POST"])
-    @validate_schema(CERTS_SCHEMA)
-    def upload_certs(self, request, body):
-        self.model.add_certs(**body)
-
     @app.route("/ports", methods=["POST"])
     @validate_schema(PORTS_SCHEMA)
     def check_ports(self, request, body):
