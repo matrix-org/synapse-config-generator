@@ -67,7 +67,7 @@ export default {
         new HtmlWebpackPlugin({
             hash: true,
             filename: __dirname + '/synapseconfiggenerator/static/index.html',
-            title: 'Topology - The synapse configuration tool',
+            title: 'The synapse configuration generator',
         }),
         new HtmlWebpackTagsPlugin({
             tags: ['css/bootstrap.min.css'],
