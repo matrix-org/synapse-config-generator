@@ -62,12 +62,12 @@ else:
 if args.port:
     port = args.port
 
-if not path.isdir(args.config_dir):
-    print("'{}' is not a directory.".format(args.config_dir))
+if not path.isdir(args.configdir):
+    print("'{}' is not a directory.".format(args.configdir))
     exit(1)
 
 
-server = Server(Model(args.config_dir))
+server = Server(Model(args.configdir))
 
 
 print("\nGo to http://localhost:{}\n".format(port))
