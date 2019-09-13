@@ -17,6 +17,8 @@
 
 import argparse
 from os import devnull, path
+from textwrap import dedent
+from sys import argv
 
 
 from synapseconfiggenerator.model import Model
@@ -27,7 +29,7 @@ port = 16333
 parser = argparse.ArgumentParser(description="Synapse configuration util")
 
 parser.add_argument(
-    "config_dir",
+    "--configdir",
     metavar="CONFIG_DIR",
     type=str,
     help="Path the directory containing synapse's configuration files.",
@@ -40,6 +42,17 @@ parser.add_argument(
 )
 
 args = parser.parse_args()
+
+if not args.configdir:
+    print(dedent("""\
+        Please specify the directory into which the generator config will go.
+
+        e.g.
+
+        {} --configdir <config directory>
+    """).format(path.basename(__file__)))
+    exit(1)
+
 
 if args.v:
     logFile = None
