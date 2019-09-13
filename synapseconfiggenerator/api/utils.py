@@ -13,16 +13,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import socket
+from contextlib import closing
 from functools import wraps
+from typing import Callable
 
 from canonicaljson import json
 from jsonschema import validate
 
-from contextlib import closing
-import socket
 
-
-def validate_schema(schema):
+def validate_schema(schema: dict) -> Callable:
     """Decorator that wraps klein routes. It validates the schema of the
     request's body against `schema`. This is not a transparent decorator.
 
@@ -31,6 +31,9 @@ def validate_schema(schema):
 
     The signature for a route wrapped with validate_schema should be:
     def fun(self, request, body):
+
+    Args:
+        schema
     """
 
     def _wrap_validate(func):
@@ -45,9 +48,11 @@ def validate_schema(schema):
     return _wrap_validate
 
 
-def port_checker(port):
+def port_checker(port: int) -> bool:
     """Checks that synapse can spawn a listener on `port`
-    Returns
+    Args:
+        port: The port to be checked.
+    Returns:
         True if port is valid port and can be listened on.
         False otherwise.
     """
@@ -64,7 +69,7 @@ def port_checker(port):
             return False
 
 
-def log_body_if_fail(func):
+def log_body_if_fail(func) -> Callable:
     """Logs the body of the request if the request failed."""
 
     @wraps(func)

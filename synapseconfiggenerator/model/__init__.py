@@ -42,16 +42,16 @@ class Model:
         if not isdir(self.data_dir):
             mkdir(self.data_dir)
 
-    def get_config(self, config_path):
+    def get_config(self, config_path: str) -> dict:
         """
         Retrieves a config from the config directory. Any path can be provided
         but it must be a subdirectory of self.config_dir
 
         Args:
-            config_path (str): path to the config
+            config_path: path to the config
 
         Returns:
-            dict: the yaml parse of the config file
+            The yaml parse of the config file
         """
         conf_path = abspath(join(self.config_dir, config_path))
 
@@ -61,7 +61,7 @@ class Model:
         with open(conf_path, "r") as f:
             return yaml.safe_load(f)
 
-    def write_config(self, config):
+    def write_config(self, config: dict):
         """
         Given a config generates a templated config from synapse and writes it
         out to the config dir. It will raise an exception if the config in
@@ -79,7 +79,7 @@ class Model:
             with open(abspath(join(self.config_dir, conf_name)), "w") as f:
                 f.write(conf)
 
-    def config_in_use(self):
+    def config_in_use(self) -> bool:
         """
         Checks if we set whether the config is in use. If it was set up by the
         system but synapse wasn't launched yet we will have set this to False.
@@ -98,7 +98,15 @@ class Model:
         print(config.get(CONFIG_LOCK))
         return config.get(CONFIG_LOCK, True)
 
-    def generate_secret_key(self, server_name):
+    def generate_secret_key(self, server_name: str) -> str:
+        """
+        Generates and writes a secret key.
+        Args:
+            server_name: The name of the homeserver
+
+        Returns:
+            The secret key identifying the server.
+        """
         if self.config_in_use():
             raise BaseConfigInUseError()
 
