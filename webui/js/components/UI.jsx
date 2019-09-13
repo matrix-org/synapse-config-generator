@@ -32,12 +32,14 @@ import {
     DATABASE_UI,
     COMPLETE_UI,
     SETUP_ORDER,
+    IDENTITY_SERVER_UI,
     DONE_UI,
 } from '../reducers/ui-constants';
 
 import Error from './Error';
 import Loading from './Loading';
 
+import IdentityServer from '../components/IdentityServers';
 import BaseIntro from '../containers/BaseIntro';
 import ServerName from '../containers/ServerName';
 import StatsReporter from '../containers/StatsReporter';
@@ -79,6 +81,8 @@ const blockMapping = uiBlock => {
             return <DelegationSampleConfig key={uiBlock} />
         case DATABASE_UI:
             return <Database key={uiBlock} />
+        case IDENTITY_SERVER_UI:
+            return <IdentityServer key={uiBlock} />
         case COMPLETE_UI:
             return <CompleteSetup key={uiBlock} />
         case DONE_UI:

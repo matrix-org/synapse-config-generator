@@ -24,11 +24,13 @@ export const PORT_SELECTION_UI = "port_selection_ui";
 export const REVERSE_PROXY_TEMPLATE_UI = "reverse_proxy_tamplate_ui";
 export const DELEGATION_TEMPLATE_UI = "delegation_tamplate_ui";
 export const DATABASE_UI = "database_ui";
+export const IDENTITY_SERVER_UI = "identity_server_ui";
 export const COMPLETE_UI = "complete_ui";
 export const DONE_UI = "done_ui";
 
 // Setup order
 export const SETUP_ORDER = [
+    IDENTITY_SERVER_UI,
     SERVER_NAME_UI,
     STATS_REPORT_UI,
     KEY_EXPORT_UI,
