@@ -14,6 +14,5 @@ Getting started
 
 .. code::
 
-  cd backend
   pip install .
   synapse-config-generator config_dir
