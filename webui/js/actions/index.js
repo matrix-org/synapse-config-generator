@@ -17,6 +17,7 @@ limitations under the License.
 import {
     ADVANCE_UI,
     BACK_UI,
+    CONFIG_WRITE_FAILED,
     SET_SERVERNAME,
     SET_STATS,
     BASE_CONFIG_CHECKED,
@@ -301,7 +302,7 @@ export const setDatabase = databaseConfig => ({
     databaseConfig,
 })
 
-export const writeConfig = (callback) => {
+export const writeConfigAndStartSynapse = (callback) => {
 
     return (dispatch, getState) => {
 
@@ -332,7 +333,7 @@ export const writeConfig = (callback) => {
                 error => {
 
                     dispatch(fail(error));
-                    dispatch(synapseStartStartFailed())
+                    dispatch(configWriteFailed())
 
                 },
             )
@@ -340,6 +341,38 @@ export const writeConfig = (callback) => {
     }
 
 }
+
+export const writeConfig = (callback) => {
+    return (dispatch, getState) => {
+
+        postConfig(baseConfigToSynapseConfig(getState().baseConfig))
+            .then(
+                res => {
+
+                    if (res.ok) {
+
+                        dispatch(advanceUI());
+                        callback();
+
+                    } else {
+
+                        dispatch(configWriteFailed());
+
+                    }
+
+                },
+                error => {
+
+                    dispatch(configWriteFailed());
+
+                },
+            )
+    }
+}
+
+export const configWriteFailed = () => ({
+    type: CONFIG_WRITE_FAILED,
+})
 
 export const synapseStartFailed = () => ({
     type: SYNAPSE_START_FAILED,

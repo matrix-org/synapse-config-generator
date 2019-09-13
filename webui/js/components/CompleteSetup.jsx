@@ -34,17 +34,13 @@ export default ({
     tlsType,
     delegationType,
     synapseStartFailed,
+    configWriteFailed,
     configDir,
-    onClick,
+    startSynapse,
+    writeConfig,
 }) => {
 
     const toggle = useAccordionToggle(nextUI(COMPLETE_UI));
-
-    const decoratedOnClick = () => {
-
-        onClick(toggle);
-
-    }
 
     const [revProxyDownloaded, setRevProxyDownloaded] = useState(false);
     const [delegationDownloaded, setDelegationDownloaded] = useState(false);
@@ -66,9 +62,27 @@ export default ({
     </Card.Body>
 
     const finishedBody = <Card.Body>
-        <InlineError error={synapseStartFailed ? "Couldn't start synapse." : undefined}>
-            <button onClick={decoratedOnClick}>Start Synapse</button>
-        </InlineError>
+        <span>
+            <InlineError error={
+                synapseStartFailed ?
+                    "Couldn't start synapse." :
+                    undefined
+            }>
+                <button onClick={() => startSynapse(toggle)}>
+                    Write config and start synapse
+            </button>
+            </InlineError>
+            <br />
+            <InlineError error={
+                configWriteFailed ?
+                    "Couldn't write out the config. Is the server down?" :
+                    undefined
+            }>
+                <button onClick={() => writeConfig(toggle)}>
+                    Write Config (Don't start synapse)
+            </button>
+            </InlineError>
+        </span>
         <hr />
         <p>
             In future use <a href={synctlLink}>synctl</a> to start and stop synapse.

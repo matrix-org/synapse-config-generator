@@ -17,17 +17,19 @@ limitations under the License.
 import { connect } from 'react-redux';
 
 import CompleteSetup from '../components/CompleteSetup';
-import { writeConfig } from '../actions';
+import { writeConfig, writeConfigAndStartSynapse } from '../actions';
 
 const mapStateToProps = (state) => ({
     tlsType: state.baseConfig.tls,
     synapseStartFailed: state.baseConfig.synapseStartFailed,
+    configWriteFailed: state.baseConfig.configWriteFailed,
     delegationType: state.baseConfig.delegationType,
     configDir: state.baseConfig.configDir,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    onClick: (callback) => dispatch(writeConfig(callback)),
+    startSynapse: (callback) => dispatch(writeConfigAndStartSynapse(callback)),
+    writeConfig: (callback) => dispatch(writeConfig(callback)),
 });
 
 export default connect(

@@ -36,6 +36,7 @@ import {
     SET_CONFIG_DIR,
     BASE_CONFIG_CHECKED,
     SYNAPSE_START_FAILED,
+    CONFIG_WRITE_FAILED,
 } from "../actions/types";
 
 export default (state, action) => {
@@ -157,7 +158,11 @@ export default (state, action) => {
             }
         default:
             return state;
-
+        case CONFIG_WRITE_FAILED:
+            return {
+                ...state,
+                configWriteFailed: true,
+            }
     }
 
 };
