@@ -5,9 +5,9 @@ together the critical descision points of a first time synapse install and
 provides a pretty UI to walk new users through them.
 
 The result of using SCG is one or more yaml files akin to Synapse's [sample
-config](https://github.com/matrix-org/synapse/tree/develop/docs). Through
-using SCG the user also gains knowledge of the environment in which synapse
-will be running.
+config](https://github.com/matrix-org/synapse/blob/develop/docs/sample_config.yaml).
+Through using SCG the user also gains knowledge of the environment in which
+synapse will be running.
 
 ## Running
 
