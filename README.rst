@@ -15,4 +15,4 @@ Getting started
 .. code::
 
   pip install .
-  synapse-config-generator config_dir
+  synapse-config-generator --configdir config_dir
