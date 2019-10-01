@@ -39,8 +39,8 @@ synapse-config-generator --configdir config_dir
 
 ## Development
 
-The UI's source files are contained in `webui/`, whereas the python backend
-is located in `synapseconfiggenerator/`.
+The UI's source files are contained in the `webui` directory, whereas the
+python backend is located in the `synapseconfiggenerator` directory.
 
 By default the compiled webUI files are included in
 `synapseconfiggenerator/static`. This is so Synapse admins don't need to set
