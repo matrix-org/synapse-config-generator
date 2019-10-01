@@ -70,7 +70,7 @@ class Server:
     @validate_schema(SECRET_KEY_SCHEMA)
     def get_secret_key(self, request, body):
         """
-        Makes the model write out a secret key file and returns it's content
+        Makes the model write out a secret key file and returns its content
         to the caller. Requires the servername to be passed.
         """
         return json.dumps(
