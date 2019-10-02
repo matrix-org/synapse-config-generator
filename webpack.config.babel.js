@@ -9,7 +9,7 @@ export default {
         './webui/scss/main.scss',
         './webui/scss/bootstrap.min.css',
     ],
-    watch: true,
+    watch: false,
     output: {
         path: path.resolve(__dirname, 'synapseconfiggenerator/static'),
         filename: 'bundle.js',
