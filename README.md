@@ -37,6 +37,23 @@ synapse-config-generator --configdir config_dir
 
 ## Development
 
+### Running python tests
+
+Tests are ran using Twisted's `trial` tool. First install the python
+dependencies necessary for running the tests:
+
+```
+pip install -e ".[tests]"
+```
+
+Then simply use the following command to run them:
+
+```
+trial
+```
+
+### Modifying the WebUI
+
 The UI's source files are contained in the `webui` directory, whereas the
 Python backend is located in the `synapseconfiggenerator` directory.
 
