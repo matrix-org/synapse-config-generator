@@ -82,7 +82,7 @@ export default ({
                         </p>
                         <p>
                             The main benefit to this is that the reverse proxy can listen
-                            on the privileged port 443 (which clients like Riot expect
+                            on the privileged port 443 (which clients like Element expect
                             to connect to) on behalf of synapse. The incoming traffic is
                             then forwarded to Synapse on a non privileged port.
                         </p>
