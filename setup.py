@@ -25,5 +25,8 @@ setup(
     scripts=["synapseconfiggenerator/synapse-config-generator"],
     packages=find_packages(),
     install_requires=REQUIREMENTS,
+    extras_require={
+        "tests": ["psutil>=5.7.2"],
+    },
     include_package_data=True,
 )
