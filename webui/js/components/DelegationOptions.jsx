@@ -29,7 +29,7 @@ import { nextUI } from '../reducers/setup-ui-reducer';
 import InlineError from './InlineError';
 
 const DELEGATION_LINK =
-    "https://github.com/matrix-org/synapse/blob/master/docs/federate.md"
+    "https://github.com/matrix-org/synapse/blob/master/docs/delegate.md"
 
 export default ({ servername, skip, onClick }) => {
 
