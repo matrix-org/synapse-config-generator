@@ -1,5 +1,5 @@
 from twisted.trial import unittest
-from tempfile import TemporaryDirectory, TemporaryFile
+from tempfile import TemporaryDirectory
 from synapseconfiggenerator.model import Model
 from subprocess import check_output
 from psutil import Process
